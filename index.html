@@ -5,12 +5,6 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script language="javascript">
-
-    function clicked(){
-        window.open("../index.html","_self");
-    }
-</script>
 <script>
 
     leer=[
@@ -37,7 +31,7 @@
     }
 
     function switchplan(name){
-        $.get("/Stundenplaene/"+name+"plan.txt",null,success_function);
+        $.get("Stundenplaene/"+name+"plan.txt",null,success_function);
         $(".day").toggle(true);
         $(".hour").toggle(true);
         $(".wrap").toggle(false);
@@ -65,7 +59,7 @@
     
 <header>
     <h1> Fabis und Manus SUPERGEILE Seite</h1>
-    <button id="startseite" onclick="clicked4()"><img src="/Images/homepage.png" alt="Haus"></button>
+    <button id="startseite" onclick="clicked4()"><img src="Images/homepage.png" alt="Haus"></button>
 </header>
 <section>
  <div id="test">   
@@ -82,16 +76,22 @@
  <div class="wrap">
         <div class="cube">
           <div class="front">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
           <div class="back">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
           <div class="top">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
           <div class="bottom">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
           <div class="left">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
           <div class="right">
+                <img src="Images/OMG.jpg" alt="OMG-Logo">
           </div>
         </div>
       </div>
