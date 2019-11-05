@@ -17,6 +17,11 @@ header{
     text-align: center;
     margin: auto;
 }
+#test2{
+    padding:10px;
+    text-align: center;
+    margin: auto;
+}
 .invis{
     width: 5%;
     display: none;
