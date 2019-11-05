@@ -1,2 +1,2 @@
 # fabimanu
-Website with fabi
+Website with fabi & manu
