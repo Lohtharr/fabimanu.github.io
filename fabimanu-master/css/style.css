@@ -1,0 +1,132 @@
+
+body{
+    background: rgb(138, 138,138);
+}
+header{
+    background: white;
+    margin: -10px;
+    padding: 2px;
+    text-align: center;
+}
+#test{
+    text-align: center;
+    margin-top: 10px;
+}
+#test1{
+    padding:10px;
+    text-align: center;
+    margin: auto;
+}
+#test2{
+    padding:10px;
+    text-align: center;
+    margin: auto;
+}
+.invis{
+    width: 5%;
+    display: none;
+    background: rgb(171,0,23);
+}
+.mainbutton{
+    background: rgb(171,0,23);    
+}
+button{
+    padding: 10px;
+    border: none;
+}
+#startseite{
+position: fixed;
+right: 0px;
+top: 0px;
+padding: 7px;
+background: white;
+}
+button:hover{
+cursor: pointer;
+}
+.day{
+    font-size: 24px;
+    display: none;
+}
+.hour{
+    font-size: 24px;
+    width: 30px;
+    display: none;
+}
+table{
+    table-layout: fixed;
+}
+footer{
+right: 20px;
+position: fixed;
+bottom: 10px;
+}
+
+
+
+
+.wrap {
+    margin-top: 150px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+  .cube {
+    margin: auto;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+  }
+  
+  .cube > div {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    background-color: #000;
+    border: solid 1px #eeeeee;
+    color: #ffffff;
+  }
+  .front {
+    transform: translateZ(100px);
+  }
+  
+  .back {
+    transform: translateZ(-100px) rotateY(180deg);
+  }
+  
+  .right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+  }
+  
+  .left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+  }
+  
+  .top {
+    transform: rotateX(-270deg) translateY(-100px);
+    transform-origin: top center;
+  }
+  
+  .bottom {
+    transform: rotateX(270deg) translateY(100px);
+    transform-origin: bottom center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  
+  .cube {
+    animation: rotate 20s infinite linear;
+  }
