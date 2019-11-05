@@ -1,0 +1,7 @@
+[
+        ["","","Deutsch","Deutsch","Psychologie","Psychologie","","Religion","Religion","Wirtschaft","Wirtschaft"],
+        ["Englisch","Kunst","Kunst","","Informatik","Informatik","","Sport","Sport","P-Seminar","P-Seminar"],
+        ["Physik","Physik","Mathematik","Mathematik","Deutsch","Englisch","","","","",""],
+        ["Deutsch","Mathematik","Geschichte","Geschichte","Sozialkunde","","","","Physik","W-Seminar","W-Seminar"],
+        ["","","Englisch","Englisch","Informatik","Mathematik","","","","",""]
+]
