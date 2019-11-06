@@ -1,6 +1,7 @@
 
 body{
     background: rgb(138, 138,138);
+    overflow:hidden;
 }
 header{
     background: white;
