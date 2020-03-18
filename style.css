@@ -1,0 +1,155 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+:root{
+--colorwhite:  #ffffff ;
+--colorback: #eafbfc ;
+--colorback2: #c4f9fc;
+--colorlightblue: #2aeefc;
+
+
+
+}
+body{
+
+    background-image: linear-gradient(150deg,var(--colorback),var(--colorback2));
+    overflow:hidden;
+}
+header{
+    background: var(--colorwhite);
+    margin: -10px;
+    padding: 2px;
+    text-align: center;
+}
+#centered{
+  text-align: center;
+}
+.dropdowntop {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent{
+display: block;
+position:inherit;
+z-index: 1;
+
+
+}
+#fabibtn{
+  display: none;
+}
+#manubtn{
+display: none;
+}
+.dropdowncontent a{
+padding: 12px 16px;
+display: block;
+text-decoration: none;
+
+}
+.mainbutton{
+    background: var(--colorlightblue); 
+    border: none;
+    cursor: pointer;   
+}
+button{
+    padding: 10px;
+    border: none;
+}
+#startseite{
+position: fixed;
+right: 0px;
+top: 0px;
+padding: 7px;
+background: var(--colorwhite);
+}
+button:hover{
+cursor: pointer;
+}
+.day{
+    font-size: 24px;
+    display: none;
+}
+.hour{
+    font-size: 24px;
+    width: 30px;
+    display: none;
+}
+table{
+    table-layout: fixed;
+}
+footer{
+right: 20px;
+position: fixed;
+bottom: 10px;
+}
+
+
+
+
+.wrap {
+    margin-top: 150px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+  .cube {
+    margin: auto;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+  }
+  
+  .cube > div {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    background-color: #000;
+    border: solid 1px var(--colorwhite);
+    color: var(--colorwhite);
+  }
+  .front {
+    transform: translateZ(100px);
+  }
+  
+  .back {
+    transform: translateZ(-100px) rotateY(180deg);
+  }
+  
+  .right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+  }
+  
+  .left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+  }
+  
+  .top {
+    transform: rotateX(-270deg) translateY(-100px);
+    transform-origin: top center;
+  }
+  
+  .bottom {
+    transform: rotateX(270deg) translateY(100px);
+    transform-origin: bottom center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  
+  .cube {
+    animation: rotate 20s infinite linear;
+  }

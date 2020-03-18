@@ -1,209 +1,216 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title> Fabian's Stundenplan </title>
-<link rel="stylesheet" href="css/style.css">
+    <title> Supergeile Seite </title>
+    <link rel="stylesheet" href="css/style.css">
 
-<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
-    leer=[
-        ["","","","","","","","","","",""],
-        ["","","","","","","","","","",""],
-        ["","","","","","","","","","",""],
-        ["","","","","","","","","","",""],
-        ["","","","","","","","","","",""]
-    ];
+    <script language="javascript" src="jquery-3.4.1.min.js"></script>
+    <script>
 
-    /* $(".invis").hide();*/
-    function fillday(day,data) {
-        for(var i=1;i<12;i++)
-            $("#"+day+i).html(data[i-1]);
-    }
+        leer = [
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", ""]
+        ];
 
-    function success_function(input) {
-        data=JSON.parse(input);
-        fillday("mo",data[0]);
-        fillday("di",data[1]);
-        fillday("mi",data[2]);
-        fillday("do",data[3]);
-        fillday("fr",data[4]);
-    }
+        /* $(".invis").hide();*/
+        function fillday(day, data) {
+            for (var i = 1; i < 12; i++)
+                $("#" + day + i).html(data[i - 1]);
+        }
 
-    function switchplan(name){
-        $.get("Stundenplaene/"+name+"plan.txt",null,success_function);
-        $(".day").toggle(true);
-        $(".hour").toggle(true);
-        $(".wrap").toggle(false);
-    }
+        function success_function(input) {
+            data = JSON.parse(input);
+            fillday("mo", data[0]);
+            fillday("di", data[1]);
+            fillday("mi", data[2]);
+            fillday("do", data[3]);
+            fillday("fr", data[4]);
+        }
 
-    function clicked3() {
-        $("#fabibtn").toggle();
-        $("#manubtn").toggle();
-    }   
-    function clicked4(){
-        $(".day").toggle(false);
-        $(".hour").toggle(false);
-        $(".wrap").toggle(true);
-        $("#fabibtn").toggle(false);
-        $("#manubtn").toggle(false);
-        fillday("mo",leer[0]);
-        fillday("di",leer[1]);
-        fillday("mi",leer[2]);
-        fillday("do",leer[3]);
-        fillday("fr",leer[4]);
-}
-</script>
+        function switchplan(name) {
+            $.get("Stundenplaene/" + name + "plan.txt", null, success_function);
+            $(".day").toggle(true);
+            $(".hour").toggle(true);
+            $(".wrap").toggle(false);
+        }
+
+        function clicked3() {
+            $("#fabibtn").toggle();
+            $("#manubtn").toggle();
+        }
+        function clicked4() {
+            $(".day").toggle(false);
+            $(".hour").toggle(false);
+            $(".wrap").toggle(true);
+            $("#fabibtn").toggle(false);
+            $("#manubtn").toggle(false);
+            fillday("mo", leer[0]);
+            fillday("di", leer[1]);
+            fillday("mi", leer[2]);
+            fillday("do", leer[3]);
+            fillday("fr", leer[4]);
+        }
+        function dropdownbutton(){
+                $(".dropdowncontent").toggle();
+                
+        }
+    </script>
 </head>
+
 <body>
-    
-<header>
-    <h1> Fabis und Manus SUPERGEILE Seite</h1>
-    <button id="startseite" onclick="clicked4()"><img src="Images/homepage.png" alt="Haus"></button>
-</header>
-<section>
- <div id="test">   
-    <button class="mainbutton" id="GFG" onclick="clicked3()">Stundenplan</button>
-</div>
-<div id="test1">
-    <button id="fabibtn" class="invis yeet" onclick="switchplan('fabi')"> Fabi</button>
-</div>
-<div id="test2">
-    <button id="manubtn" class="invis boosted" onclick="switchplan('manu')">Manu </button>
-</div>
 
-
- <div class="wrap">
-        <div class="cube">
-          <div class="front">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
-          <div class="back">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
-          <div class="top">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
-          <div class="bottom">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
-          <div class="left">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
-          <div class="right">
-                <img src="Images/OMG.jpg" alt="OMG-Logo">
-          </div>
+    <header>
+        <h1> Fabis und Manus SUPERGEILE Seite</h1>
+        <button id="startseite" onclick="clicked4()"><img src="Images/homepage.png" alt="Haus"></button>
+    </header>
+    <section>
+        <div id ="centered">
+        <div class="Dropdowntop" id="move">
+            <button class="mainbutton" id="GFG" onclick="dropdownbutton()">Stundenplan</button>
+            <div id="dropdowndiv" class="dropdowncontent">
+                <a href="#"id="fabibtn" class="dropdowninside" onclick="switchplan('fabi')"> Fabi</a>
+                <a href="#" id="manubtn" class="dropdowninside" onclick="switchplan('manu')">Manu </a>
+            </div>
         </div>
-      </div>
+    </div>
+
+        <div class="wrap">
+            <div class="cube">
+                <div class="front">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="back">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="top">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="bottom">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="left">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="right">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+            </div>
+        </div>
 
 
 
 
-<div id="server_response" style="clear:both">
-    <table cellspacing=10 cellpadding=10 style="border:1;table-layout: fixed;width: 100%;">
-        <tr>
-            <td class="hour"></td>
-            <td class="day">Montag</td>
-            <td class="day">Dienstag</td>
-            <td class="day">Mittwoch</td>
-            <td class="day">Donnerstag</td>
-            <td class="day">Freitag</td>
-        </tr>
-        <tr>
-            <td class="hour">1</td>
-            <td id="mo1"></td>
-            <td id="di1"></td>
-            <td id="mi1"></td>
-            <td id="do1"></td>
-            <td id="fr1"></td>
-        </tr>
-        <tr>
-            <td class="hour">2</td>
-            <td id="mo2"></td>
-            <td id="di2"></td>
-            <td id="mi2"></td>
-            <td id="do2"></td>
-            <td id="fr2"></td>
-        </tr>
-        <tr>
-            <td class="hour">3</td>
-            <td id="mo3"></td>
-            <td id="di3"></td>
-            <td id="mi3"></td>
-            <td id="do3"></td>
-            <td id="fr3"></td>
-        </tr>
-        <tr>
-            <td class="hour">4</td>
-            <td id="mo4"></td>
-            <td id="di4"></td>
-            <td id="mi4"></td>
-            <td id="do4"></td>
-            <td id="fr4"></td>
-        </tr>
-        <tr>
-            <td class="hour" >5</td>
-            <td id="mo5"></td>
-            <td id="di5"></td>
-            <td id="mi5"></td>
-            <td id="do5"></td>
-            <td id="fr5"></td>
-        </tr>
-        <tr>
-            <td class="hour">6</td>
-            <td id="mo6"></td>
-            <td id="di6"></td>
-            <td id="mi6"></td>
-            <td id="do6"></td>
-            <td id="fr6"></td>
-        </tr>
-        <tr>
-            <td class="hour">7</td>
-            <td id="mo7"></td>
-            <td id="di7"></td>
-            <td id="mi7"></td>
-            <td id="do7"></td>
-            <td id="fr7"></td>
-        </tr>
-        <tr>
-            <td class="hour">8</td>
-            <td id="mo8"></td>
-            <td id="di8"></td>
-            <td id="mi8"></td>
-            <td id="do8"></td>
-            <td id="fr8"></td>
-        </tr>
-        <tr>
-            <td class="hour">9</td>
-            <td id="mo9"></td>
-            <td id="di9"></td>
-            <td id="mi9"></td>
-            <td id="do9"></td>
-            <td id="fr9"></td>
-        </tr>
-        <tr>
-            <td class="hour">10</td>
-            <td id="mo10"></td>
-            <td id="di10"></td>
-            <td id="mi10"></td>
-            <td id="do10"></td>
-            <td id="fr10"></td>
-        </tr>
-        <tr>
-            <td class="hour" >11</td>
-            <td id="mo11"></td>
-            <td id="di11"></td>
-            <td id="mi11"></td>
-            <td id="do11"></td>
-            <td id="fr11"></td>
-        </tr>
-    </table>
-</div>
-<footer>
-    &#9400 Fabian und Manuel
+        <div id="server_response" style="clear:both">
+            <table cellspacing=10 cellpadding=10 style="border:1;table-layout: fixed;width: 100%;">
+                <tr>
+                    <td class="hour"></td>
+                    <td class="day">Montag</td>
+                    <td class="day">Dienstag</td>
+                    <td class="day">Mittwoch</td>
+                    <td class="day">Donnerstag</td>
+                    <td class="day">Freitag</td>
+                </tr>
+                <tr>
+                    <td class="hour">1</td>
+                    <td id="mo1"></td>
+                    <td id="di1"></td>
+                    <td id="mi1"></td>
+                    <td id="do1"></td>
+                    <td id="fr1"></td>
+                </tr>
+                <tr>
+                    <td class="hour">2</td>
+                    <td id="mo2"></td>
+                    <td id="di2"></td>
+                    <td id="mi2"></td>
+                    <td id="do2"></td>
+                    <td id="fr2"></td>
+                </tr>
+                <tr>
+                    <td class="hour">3</td>
+                    <td id="mo3"></td>
+                    <td id="di3"></td>
+                    <td id="mi3"></td>
+                    <td id="do3"></td>
+                    <td id="fr3"></td>
+                </tr>
+                <tr>
+                    <td class="hour">4</td>
+                    <td id="mo4"></td>
+                    <td id="di4"></td>
+                    <td id="mi4"></td>
+                    <td id="do4"></td>
+                    <td id="fr4"></td>
+                </tr>
+                <tr>
+                    <td class="hour">5</td>
+                    <td id="mo5"></td>
+                    <td id="di5"></td>
+                    <td id="mi5"></td>
+                    <td id="do5"></td>
+                    <td id="fr5"></td>
+                </tr>
+                <tr>
+                    <td class="hour">6</td>
+                    <td id="mo6"></td>
+                    <td id="di6"></td>
+                    <td id="mi6"></td>
+                    <td id="do6"></td>
+                    <td id="fr6"></td>
+                </tr>
+                <tr>
+                    <td class="hour">7</td>
+                    <td id="mo7"></td>
+                    <td id="di7"></td>
+                    <td id="mi7"></td>
+                    <td id="do7"></td>
+                    <td id="fr7"></td>
+                </tr>
+                <tr>
+                    <td class="hour">8</td>
+                    <td id="mo8"></td>
+                    <td id="di8"></td>
+                    <td id="mi8"></td>
+                    <td id="do8"></td>
+                    <td id="fr8"></td>
+                </tr>
+                <tr>
+                    <td class="hour">9</td>
+                    <td id="mo9"></td>
+                    <td id="di9"></td>
+                    <td id="mi9"></td>
+                    <td id="do9"></td>
+                    <td id="fr9"></td>
+                </tr>
+                <tr>
+                    <td class="hour">10</td>
+                    <td id="mo10"></td>
+                    <td id="di10"></td>
+                    <td id="mi10"></td>
+                    <td id="do10"></td>
+                    <td id="fr10"></td>
+                </tr>
+                <tr>
+                    <td class="hour">11</td>
+                    <td id="mo11"></td>
+                    <td id="di11"></td>
+                    <td id="mi11"></td>
+                    <td id="do11"></td>
+                    <td id="fr11"></td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            &#9400 Fabian und Manuel
 
-</footer>
-</section>
+        </footer>
+    </section>
 </body>
 
 
