@@ -1,0 +1,223 @@
+:root{
+  --colorwhite:  #ffffff ;
+  --colorfont: #000000;
+  --colorback: #eafbfc ;
+  --colorback2: #c4f9fc;
+  --colorlightblue: #2aeefc;
+  --colordarkmodebutton: #00cc00;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  }
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--colorfont);
+
+  
+}
+
+body{
+  min-height: 100%;
+  margin: 0; 
+    background-image: linear-gradient(150deg,var(--colorback),var(--colorback2));
+    overflow:hidden;
+}
+section{
+  height: 100%;
+}
+header{
+    background: var(--colorwhite);
+    margin: -10px;
+    padding: 2px;
+    text-align: center;
+}
+.centered{
+  text-align: center;
+}
+#serverresponse{
+  clear:both;
+
+}
+/* dropdownbutton css*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdowncontent{
+display: block;
+position: absolute;
+z-index: 1;
+display: none;
+background: var(--colorlightblue);
+min-width: 96px; /*hier muss man des definitiv noch schön machen*/
+}
+.dropdowncontent a{
+padding: 12px 16px;
+display: block;
+text-decoration: none;
+
+}
+.mainbutton{
+    background: var(--colorlightblue); 
+    border: none;
+    cursor: pointer;   
+}
+button{
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+#header-bar{
+position: fixed;
+right: 0px;
+top: 10px;
+display: inline-block;
+}
+.header-bar-button{
+ height: 64px;
+ width: 64px;  
+ padding: 0px;
+}
+.header-bar-images{
+   background: var(--colorwhite);
+}
+/*Settings btn und Darkmode zeugs*/
+#settings-box{
+display: none;
+background-color: var(--colorwhite);
+right: 0px;
+width: 200px;
+padding: 2px;
+position: absolute;
+top: 85px;
+}
+#Darkmodebtn{
+margin-right: 10px;
+width: 60px;
+height: 15px;
+border-radius: 8px;
+padding: 2px;
+background-color: var(--colordarkmodebutton);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 15px;
+}
+  
+button:hover{
+cursor: pointer;
+}
+.day{
+    font-size: 24px;
+    display: none;
+}
+.hour{
+  font-size: 15px;
+    width: 160px;
+    display: none;
+    text-align: center;
+}
+table{
+    table-layout: fixed;
+    border:1;
+    width: 100%;
+  }
+td{
+background-color: transparent;
+
+}
+#popupwindow{
+text-align: center;
+background-color: var(--colorlightblue);
+color: black;
+height: 500px;
+margin-top: 80px;
+}
+.popupbutton{
+color: black;
+width: 150px;
+}
+#cookiesdeny{
+background-color: #ff0000;  
+}
+#cookiesaccept{
+background-color: #00cc00;
+}
+
+footer{
+right: 20px;
+position: fixed;
+bottom: 0px;
+}
+
+
+
+
+.wrap {
+    margin-top: 150px;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+  .cube {
+    margin: auto;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+  }
+  
+  .cube > div {
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    background-color: #000;
+    border: solid 1px var(--colorwhite);
+    color: var(--colorwhite);
+  }
+  .front {
+    transform: translateZ(100px);
+  }
+  
+  .back {
+    transform: translateZ(-100px) rotateY(180deg);
+  }
+  
+  .right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+  }
+  
+  .left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+  }
+  
+  .top {
+    transform: rotateX(-270deg) translateY(-100px);
+    transform-origin: top center;
+  }
+  
+  .bottom {
+    transform: rotateX(270deg) translateY(100px);
+    transform-origin: bottom center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  
+  .cube {
+    animation: rotate 20s infinite linear;
+  }

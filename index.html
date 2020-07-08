@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Supergeile Seite </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/Images/webicon.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">    
+</head>
+
+<body>
+    <header>
+        <h1 id="header"> Stundenplan</h1>
+        <div id="header-bar">
+            <button class="header-bar-button" onclick="takemehome()"><img class="header-bar-images" src="Images/homepage.png" alt="Haus"></button>
+            <button class="header-bar-button" onclick="toggle(`#settings-box`)"> <img  class="header-bar-images"src="Images/Settings.png" alt="Settings"></button>
+        </div>
+    </header>
+    <section >
+        <div class="centered">   
+            <div class="dropdown" id="move">
+                <button class="mainbutton" id="dropdownbutton" onclick="toggle(`.dropdowncontent`)">Stundenplan</button>
+                <div id="dropdowndiv" class="dropdowncontent">
+                    <a href="#"id="fabibtn" class="dropdowninside" onclick="switchplan('fabi')"> Fabi</a>
+                    <a href="#" id="manubtn" class="dropdowninside" onclick="switchplan('manu')">Manu </a>
+                </div>
+            </div>
+        </div>
+        <div id="settings-box">
+            <div>
+                Dark Mode
+                <button  onclick="darkmodecookie();darkmodecheck();"id="Darkmodebtn"></button> 
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="cube">
+                <div class="front">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="back">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="top">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="bottom">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="left">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+                <div class="right">
+                    <img src="Images/OMG.jpg" alt="OMG-Logo">
+                </div>
+            </div>
+        </div>
+
+        <div id="server_response">
+            <table cellspacing=10 cellpadding=10>
+                <tr>
+                    <td class="hour"></td>
+                    <td class="day">Montag</td>
+                    <td class="day">Dienstag</td>
+                    <td class="day">Mittwoch</td>
+                    <td class="day">Donnerstag</td>
+                    <td class="day">Freitag</td>
+                </tr>
+                <tr>
+                    <td class="hour">7:50-8:35</td>
+                    <td id="mo1"></td>
+                    <td id="di1"></td>
+                    <td id="mi1"></td>
+                    <td id="do1"></td>
+                    <td id="fr1"></td>
+                </tr>
+                <tr>
+                    <td class="hour">8:35-9:20</td>
+                    <td id="mo2"></td>
+                    <td id="di2"></td>
+                    <td id="mi2"></td>
+                    <td id="do2"></td>
+                    <td id="fr2"></td>
+                </tr>
+                <tr>
+                    <td class="hour"> 9:40-10:25</td>
+                    <td id="mo3"></td>
+                    <td id="di3"></td>
+                    <td id="mi3"></td>
+                    <td id="do3"></td>
+                    <td id="fr3"></td>
+                </tr>
+                <tr>
+                    <td class="hour">10:25-11:10</td>
+                    <td id="mo4"></td>
+                    <td id="di4"></td>
+                    <td id="mi4"></td>
+                    <td id="do4"></td>
+                    <td id="fr4"></td>
+                </tr>
+                <tr>
+                    <td class="hour">11:25-12:10</td>
+                    <td id="mo5"></td>
+                    <td id="di5"></td>
+                    <td id="mi5"></td>
+                    <td id="do5"></td>
+                    <td id="fr5"></td>
+                </tr>
+                <tr>
+                    <td class="hour">12:10-12:55</td>
+                    <td id="mo6"></td>
+                    <td id="di6"></td>
+                    <td id="mi6"></td>
+                    <td id="do6"></td>
+                    <td id="fr6"></td>
+                </tr>
+                <tr>
+                    <td class="hour">13:05-13:50</td>
+                    <td id="mo7"></td>
+                    <td id="di7"></td>
+                    <td id="mi7"></td>
+                    <td id="do7"></td>
+                    <td id="fr7"></td>
+                </tr>
+                <tr>
+                    <td class="hour">13:50-14:35</td>
+                    <td id="mo8"></td>
+                    <td id="di8"></td>
+                    <td id="mi8"></td>
+                    <td id="do8"></td>
+                    <td id="fr8"></td>
+                </tr>
+                <tr>
+                    <td class="hour">14:35-15:20</td>
+                    <td id="mo9"></td>
+                    <td id="di9"></td>
+                    <td id="mi9"></td>
+                    <td id="do9"></td>
+                    <td id="fr9"></td>
+                </tr>
+                <tr>
+                    <td class="hour">15:30-16:15</td>
+                    <td id="mo10"></td>
+                    <td id="di10"></td>
+                    <td id="mi10"></td>
+                    <td id="do10"></td>
+                    <td id="fr10"></td>
+                </tr>
+                <tr>
+                    <td class="hour">16:15-17:00</td>
+                    <td id="mo11"></td>
+                    <td id="di11"></td>
+                    <td id="mi11"></td>
+                    <td id="do11"></td>
+                    <td id="fr11"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="popupwindow">
+            Diese Webseite benutzt Cookies um ihnen persönliche Einstellungen zu ermöglichen.
+            <div>      
+                <button id="cookiesdeny" class="popupbutton" onclick="cookiesdeny()">Ablehnen</button>
+                <button id="cookiesaccept" class="popupbutton" onclick="cookiesaccept()">Akkzeptieren</button>
+            </div> 
+        </div>
+        <footer>
+            &#9400 Fabian und Manuel
+        </footer>
+    </section>
+    <script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script language="javascript" src="Script/script.js"></script>  
+</body>
+
+
+
+
+</html>
