@@ -1,5 +1,6 @@
 var dark = false;
 var mouse_is_insettings = false;
+var active;
 
 var Day = new Date().getDay(); /*Tag als Nummer beginnend Sonntag als 0*/
 // weil testen 
@@ -8,7 +9,7 @@ var Tomorrow = Day+1;
 var Lehrer;
 darkmodecheck();
 cookiecheck();
-
+$("table").toggle(false);
 
 
 
@@ -20,13 +21,14 @@ leer = [
     ["", "", "", "", "", "", "", "", "", "", ""]
 ];
 
-
-
-
 /* $(".invis").hide();*/
 function fillday(day, data) {
-    for (var i = 1; i < 12; i++)
+    for (var i = 1; i < 12; i++){
         $("#" + day + i).html(data[i - 1]);
+        if(!data[i-1]==""){
+          $("#"+day+i).addClass("tdvoll");  
+        }
+    }
 }
 
 function success_function(input) {
@@ -36,12 +38,13 @@ function success_function(input) {
     fillday("mi", data[2]);
     fillday("do", data[3]);
     fillday("fr", data[4]);
+    hover();
 }
 function switchplan(name) {
+    active =name;
     $("td").css("background-color","transparent");
     $.get("Stundenplaene/" + name + "plan.txt", null, success_function);
-    $(".day").toggle(true);
-    $(".hour").toggle(true);
+    $("table").toggle(true);
     $(".wrap").toggle(false);
     $(".dropdowncontent").toggle(false);
     $.getJSON("/Stundenplaene/"+name+"lehrer.txt", function getlehrer(data) {
@@ -79,7 +82,7 @@ function switchplan(name) {
                     /*i2 manchaml -1 da array bei 0 anfängt stunden bsp ned */ 
                     {
                         $("#" + DaytoWord(Tomorrow) + i2 ).html(data.Vertretungen[i].Lehrkraft+" in "+ data.Vertretungen[i].Raum);
-                        $("#" + DaytoWord(Tomorrow) + i2 ).css("background-color", "#2aeefc");// farbe durch variable ersetzen,geht als einzige nicht ????
+                        $("#" + DaytoWord(Tomorrow) + i2 ).css("background-color", "--colorlightblue");// farbe durch variable ersetzen,geht als einzige nicht ????
                         if(data.Vertretungen[i].Nachricht == "entf\u00e4llt"){
                              $("#" + DaytoWord(Tomorrow) + i2 ).html("Entfällt"); 
                         }
@@ -92,7 +95,7 @@ function switchplan(name) {
             }
         }
     );
-
+console.log("Nach Vertretungen gesucht")
 }
 
 
@@ -123,8 +126,7 @@ function clicked3() {
     $("#manubtn").toggle();
 }
 function takemehome() {
-    $(".day").toggle(false);
-    $(".hour").toggle(false);
+    $("table").toggle(false);
     $(".wrap").toggle(true);
     $(".dropdowncontent").toggle(false);
     fillday("mo", leer[0]);
@@ -207,3 +209,57 @@ $(document).ready(function () {
     });
 });
 
+function hover(){ 
+    var temp;
+    $(".tdvoll").hover(
+        function(){
+            temp =event.target.textContent;
+            console.log(temp);
+            event.target.textContent+=idtoIndex(event.target.id);
+        },function(){
+            event.target.textContent=temp;   
+    });
+}
+function idtoIndex(ID){
+    var Raum;
+    var Lehrer;
+var temp =ID.substring(0,2);
+temp =WordToDay(temp);
+var temp2 =ID.substring(2);
+$.getJSON("Stundenplaene/" + active + "raum.txt",function(data){
+Raum =data[temp-1][temp2-1];
+
+});
+$.ajax({
+async:false,
+url:"Stundenplaene/" + active + "lehrer.txt",
+success:function(data){
+    Lehrer=data[temp-1][temp2-1];
+}
+});
+
+console.log(Lehrer);
+return(" Raum: "+Raum+" Lehrer: "+Lehrer);
+}
+
+function WordToDay (temp){
+    var WordasDay;
+    switch(temp){
+        case "mo":
+            WordasDay = 1
+            break; 
+        case "di":
+            WordasDay = 2
+            break;
+        case "mi":
+            WordasDay = 3
+            break;
+        case "do":
+            WordasDay = 4
+            break;
+        case "fr":
+            WordasDay = 5
+            break;
+    }
+    return(WordasDay);    
+}

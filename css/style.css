@@ -5,6 +5,7 @@
   --colorback2: #c4f9fc;
   --colorlightblue: #2aeefc;
   --colordarkmodebutton: #00cc00;
+  --colorhighlight:#1affd1;
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -12,9 +13,7 @@
 
 * {
   font-family: 'Open Sans', sans-serif;
-  color: var(--colorfont);
-
-  
+  color: var(--colorfont); 
 }
 
 body{
@@ -35,10 +34,7 @@ header{
 .centered{
   text-align: center;
 }
-#serverresponse{
-  clear:both;
-
-}
+   
 /* dropdownbutton css*/
 .dropdown {
   position: relative;
@@ -110,25 +106,25 @@ background-color: var(--colordarkmodebutton);
 button:hover{
 cursor: pointer;
 }
+.tdvoll:hover{
+background-color: var(--colorhighlight) !important;
+}
+
 .day{
-    font-size: 24px;
-    display: none;
+    font-size: 24px;    
 }
-.hour{
-  font-size: 15px;
-    width: 160px;
-    display: none;
-    text-align: center;
-}
+
 table{
     table-layout: fixed;
-    border:1;
-    width: 100%;
+    display: table;
+    text-align: center;
+    width: 90%;
+    margin: auto;
   }
-td{
+td,tr{
 background-color: transparent;
-
 }
+       
 #popupwindow{
 text-align: center;
 background-color: var(--colorlightblue);
