@@ -1,15 +1,14 @@
 var dark = false;
 var mouse_is_insettings = false;
 var active;
-
 var Day = new Date().getDay(); /*Tag als Nummer beginnend Sonntag als 0*/
-// weil testen 
-Day=5;
 var Tomorrow = Day+1;
 var Lehrer;
+var firsttime = true;
 darkmodecheck();
 cookiecheck();
 $("table").toggle(false);
+
 
 
 
@@ -26,6 +25,7 @@ function fillday(day, data) {
     for (var i = 1; i < 12; i++){
         $("#" + day + i).html(data[i - 1]);
         if(!data[i-1]==""){
+            console.log("2")
           $("#"+day+i).addClass("tdvoll");  
         }
     }
@@ -38,7 +38,10 @@ function success_function(input) {
     fillday("mi", data[2]);
     fillday("do", data[3]);
     fillday("fr", data[4]);
-    hover();
+    if(firsttime){
+        hovering();
+    }
+    firsttime = false;
 }
 function switchplan(name) {
     active =name;
@@ -95,30 +98,44 @@ function switchplan(name) {
             }
         }
     );
-console.log("Nach Vertretungen gesucht")
+console.log("Nach Vertretungen gesucht");
+
 }
-
-
-function DaytoWord (temp){
-    var DayasWord;
+function DaytoWord(temp){
+    var DayWord;
     switch(temp){
         case 1:
-            DayasWord = "mo"
+            DayWord = "mo"
             break; 
         case 2:
-            DayasWord = "di"
+            DayWord = "di"
             break;
         case 3:
-            DayasWord = "mi"
+            DayWord = "mi"
             break;
         case 4:
-            DayasWord = "do"
+            DayWord = "do"
             break;
         case 5:
-            DayasWord = "fr"
+            DayWord = "fr"
             break;
-    }
-    return(DayasWord);    
+        case "mo":
+            DayWord = 1
+            break; 
+        case "di":
+            DayWord = 2
+            break;
+        case "mi":
+            DayWord = 3
+            break;
+        case "do":
+            DayWord = 4
+            break;
+        case "fr":
+            DayWord = 5
+            break;    
+        }
+    return(DayWord);    
 }
 
 function clicked3() {
@@ -209,7 +226,7 @@ $(document).ready(function () {
     });
 });
 
-function hover(){ 
+function hovering(){ 
     var temp;
     $(".tdvoll").hover(
         function(){
@@ -217,49 +234,29 @@ function hover(){
             console.log(temp);
             event.target.textContent+=idtoIndex(event.target.id);
         },function(){
-            event.target.textContent=temp;   
+            event.target.textContent=temp;
+            
+            console.log(temp);   
     });
 }
 function idtoIndex(ID){
     var Raum;
     var Lehrer;
-var temp =ID.substring(0,2);
-temp =WordToDay(temp);
-var temp2 =ID.substring(2);
-$.getJSON("Stundenplaene/" + active + "raum.txt",function(data){
-Raum =data[temp-1][temp2-1];
+    var temp =ID.substring(0,2);
+    temp =DaytoWord(temp);
+    var temp2 =ID.substring(2);
 
-});
-$.ajax({
-async:false,
-url:"Stundenplaene/" + active + "lehrer.txt",
-success:function(data){
-    Lehrer=data[temp-1][temp2-1];
-}
-});
+$.getJSON("Stundenplaene/" + active + "raum.txt").then(function(data){
+            Raum =data[temp-1][temp2-1];
+            console.log("1")
+        });
+ $.getJSON("Stundenplaene/" + active + "lehrer.txt").then(function(data){
+            Lehrer =data[temp-1][temp2-1];
+        });    
 
-console.log(Lehrer);
-return(" Raum: "+Raum+" Lehrer: "+Lehrer);
+    return (" Raum: "+Raum+" Lehrer: "+Lehrer);
 }
 
-function WordToDay (temp){
-    var WordasDay;
-    switch(temp){
-        case "mo":
-            WordasDay = 1
-            break; 
-        case "di":
-            WordasDay = 2
-            break;
-        case "mi":
-            WordasDay = 3
-            break;
-        case "do":
-            WordasDay = 4
-            break;
-        case "fr":
-            WordasDay = 5
-            break;
-    }
-    return(WordasDay);    
-}
+
+
+
