@@ -231,12 +231,10 @@ function hovering(){
     $(".tdvoll").hover(
         function(){
             temp =event.target.textContent;
-            console.log(temp);
             event.target.textContent+=idtoIndex(event.target.id);
         },function(){
             event.target.textContent=temp;
-            
-            console.log(temp);   
+              
     });
 }
 function idtoIndex(ID){
@@ -245,16 +243,18 @@ function idtoIndex(ID){
     var temp =ID.substring(0,2);
     temp =DaytoWord(temp);
     var temp2 =ID.substring(2);
-
-$.getJSON("Stundenplaene/" + active + "raum.txt").then(function(data){
-            Raum =data[temp-1][temp2-1];
-            console.log("1")
-        });
- $.getJSON("Stundenplaene/" + active + "lehrer.txt").then(function(data){
-            Lehrer =data[temp-1][temp2-1];
-        });    
-
-    return (" Raum: "+Raum+" Lehrer: "+Lehrer);
+    return (
+        " Raum: "+
+        $.getJSON("Stundenplaene/" + active + "raum.txt").then(function(data){
+        console.log(data[temp-1][temp2-1] %s );   
+        return ( data[temp-1][temp2-1]);
+            
+        })+ " Lehrer: "+
+        JSON.stringify( $.getJSON("Stundenplaene/" + active + "lehrer.txt").then(function(data) {
+        console.log(data[temp-1][temp2-1]);
+            return String(data[temp-1][temp2-1]);
+        }) )  
+    );
 }
 
 

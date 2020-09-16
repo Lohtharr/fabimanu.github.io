@@ -1,7 +1,7 @@
 [
-        ["","","Deutsch","Deutsch","Informatik","Informatik","","Religion","Religion","Geographie","Geographie"],
-        ["Englisch","Wirtschaft","Wirtschaft","","","","","Sport","Sport","P-Seminar","P-Seminar"],
-        ["Physik","Physik","Mathematik","Mathematik","Deutsch","Englisch","","","","",""],
-        ["Deutsch","Mathematik","Geschichte","Geschichte","Sozialkunde","","","Informatik","Physik","W-Seminar","W-Seminar"],
-        ["Musik","Musik","Englisch","Englisch","","Mathematik","","","","",""]
+        ["Physik","Physik","","Geographie","Geographie","Mathematik","","Deutsch","Englisch","",""],
+        ["Sozialkunde","Geschichte","Geschichte","Mathematik","Mathematik","Deutsch","","","Physik","BUS","BUS"],
+        ["Deutsch","Deutsch","Englisch","Englisch","","","","","","",""],
+        ["","Informatik","Wirtschaft","Wirtschaft","Religion","Religion","","Musik","Musik","W-Seminar","W-Seminar"],
+        ["Informatik","Informatik","Englisch","Mathematik","Sport","Sport","","","","",""]
 ]
