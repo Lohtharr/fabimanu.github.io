@@ -192,7 +192,7 @@ function darkmodecheck() {
         dark = false;
         document.documentElement.style.setProperty("--colorwhite", "#ffffff");
         document.documentElement.style.setProperty("--colorfont", "#000000");
-        document.documentElement.style.setProperty("--colorback", "#eafbfc");
+        document.documentElement.style.setProperty("--colorback", "#eeeffa");
         //document.documentElement.style.setProperty("--colorback2", "#c4f9fc");
         document.documentElement.style.setProperty("--colordarkmodebutton", "#ff0000");
     }
