@@ -183,9 +183,9 @@ function darkmodecheck() {
     if (dunkel != "") {
         dark = true;
         document.documentElement.style.setProperty("--colorwhite", "#1a1a1a");
-        document.documentElement.style.setProperty("--colorfont", "#ffffff");
-        document.documentElement.style.setProperty("--colorback", "#1a1a1a");
-        document.documentElement.style.setProperty("--colorback2", "#0d0d0d");
+        document.documentElement.style.setProperty("--colorfont", "#efefef");
+        document.documentElement.style.setProperty("--colorback", "#2a2a2e");
+        //document.documentElement.style.setProperty("--colorback2", "#0d0d0d");
         document.documentElement.style.setProperty("--colordarkmodebutton", "#00cc00");
         
     } else {
@@ -193,7 +193,7 @@ function darkmodecheck() {
         document.documentElement.style.setProperty("--colorwhite", "#ffffff");
         document.documentElement.style.setProperty("--colorfont", "#000000");
         document.documentElement.style.setProperty("--colorback", "#eafbfc");
-        document.documentElement.style.setProperty("--colorback2", "#c4f9fc");
+        //document.documentElement.style.setProperty("--colorback2", "#c4f9fc");
         document.documentElement.style.setProperty("--colordarkmodebutton", "#ff0000");
     }
 }
